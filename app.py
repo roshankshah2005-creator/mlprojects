@@ -15,6 +15,17 @@ st.set_page_config(
 # --- CLASSY GOLD & BLACK THEME CSS ---
 st.markdown("""
 <style>
+    /* NEW: Completely hides the top Streamlit header bar layer seen in Screenshot 2026-07-04 124248.png */
+    header[data-testid="stHeader"] {
+        visibility: hidden !important;
+        height: 0px !important;
+    }
+    
+    /* Completely hides the footer text if present */
+    footer {
+        visibility: hidden !important;
+    }
+
     /* 1. Warm Yellowish-Orangish Gold Gradient Background */
     .stApp {
         background: linear-gradient(135deg, #F9D423 0%, #FF4E50 100%) !important;
@@ -94,29 +105,28 @@ st.markdown("""
         border-left: 1px solid #000000 !important;
     }
 
-    /* 6. FIXED FORM SUBMIT BUTTON OVERRIDES (MATCHES DROPDOWN TAB AESTHETIC) */
+    /* 6. FIXED FORM SUBMIT BUTTON OVERRIDES */
     div[data-testid="stFormSubmitButton"] {
         background-color: transparent !important;
         border: none !important;
     }
 
     div[data-testid="stFormSubmitButton"] button {
-        background-color: #FFFFFF !important; /* Crisp white background like inputs */
-        color: #000000 !important; /* Jet black clear readable text */
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
         border-radius: 10px !important;
         width: 100% !important;
         font-weight: 800 !important;
         font-size: 1.1rem !important;
-        border: 2px solid #000000 !important; /* Matches outer border theme */
+        border: 2px solid #000000 !important;
         padding: 14px 20px !important;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
         transition: all 0.2s ease-in-out !important;
     }
     
-    /* Elegant contrast invert style when mouse hovers over button */
     div[data-testid="stFormSubmitButton"] button:hover {
         background: #000000 !important; 
-        color: #F9D423 !important; /* Shines gold on hover */
+        color: #F9D423 !important;
         border: 2px solid #000000 !important;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
         transform: translateY(-1px) !important;
