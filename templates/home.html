@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Indicator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .prediction-card { background: #ffffff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .result-box { background-color: #e9ecef; border-left: 5px solid #0d6efd; font-size: 1.25rem; }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            
+            <div class="prediction-card p-4 p-sm-5">
+                <h2 class="text-center text-primary mb-2">Student Exam Performance Indicator</h2>
+                <p class="text-center text-muted mb-4">Student Exam Performance Prediction</p>
+                <hr class="mb-4">
+
+                <!-- Action route explicitly updated to match your app.py endpoint -->
+                <form action="/predictdata" method="POST">
+                    
+                    <!-- Gender -->
+                    <div class="mb-3">
+                        <label for="gender" class="form-label fw-bold">Gender</label>
+                        <select class="form-select" id="gender" name="gender" required>
+                            <option value="" disabled selected>Select your Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <!-- Race or Ethnicity -->
+                    <div class="mb-3">
+                        <label for="ethnicity" class="form-label fw-bold">Race or Ethnicity</label>
+                        <select class="form-select" id="ethnicity" name="ethnicity" required>
+                            <option value="" disabled selected>Select Ethnicity</option>
+                            <option value="group A">Group A</option>
+                            <option value="group B">Group B</option>
+                            <option value="group C">Group C</option>
+                            <option value="group D">Group D</option>
+                            <option value="group E">Group E</option>
+                        </select>
+                    </div>
+
+                    <!-- Parental Level of Education -->
+                    <div class="mb-3">
+                        <label for="parental_level_of_education" class="form-label fw-bold">Parental Level of Education</label>
+                        <select class="form-select" id="parental_level_of_education" name="parental_level_of_education" required>
+                            <option value="" disabled selected>Select Parent Education</option>
+                            <option value="associate's degree">associate's degree</option>
+                            <option value="bachelor's degree">bachelor's degree</option>
+                            <option value="high school">high school</option>
+                            <option value="master's degree">master's degree</option>
+                            <option value="some college">some college</option>
+                            <option value="some high school">some high school</option>
+                        </select>
+                    </div>
+
+                    <!-- Lunch Type -->
+                    <div class="mb-3">
+                        <label for="lunch" class="form-label fw-bold">Lunch Type</label>
+                        <select class="form-select" id="lunch" name="lunch" required>
+                            <option value="" disabled selected>Select Lunch Type</option>
+                            <option value="free/reduced">free/reduced</option>
+                            <option value="standard">standard</option>
+                        </select>
+                    </div>
+
+                    <!-- Test Preparation Course -->
+                    <div class="mb-3">
+                        <label for="test_preparation_course" class="form-label fw-bold">Test Preparation Course</label>
+                        <select class="form-select" id="test_preparation_course" name="test_preparation_course" required>
+                            <option value="" disabled selected>Select Test_course</option>
+                            <option value="none">None</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <!-- Reading Score -->
+                    <div class="mb-3">
+                        <label for="reading_score" class="form-label fw-bold">Reading Score out of 100</label>
+                        <input type="number" class="form-control" id="reading_score" name="reading_score" min="0" max="100" placeholder="Enter reading score" required>
+                    </div>
+
+                    <!-- Writing Score -->
+                    <div class="mb-4">
+                        <label for="writing_score" class="form-label fw-bold">Writing Score out of 100</label>
+                        <input type="number" class="form-control" id="writing_score" name="writing_score" min="0" max="100" placeholder="Enter writing score" required>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="d-grid gap-2 mb-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Predict Performance</button>
+                    </div>
+                </form>
+
+                <!-- Prediction Output Panel -->
+                {% if results is not none %}
+                <div class="result-box p-3 rounded text-center fw-bold text-dark">
+                    THE prediction is {{ results }}
+                </div>
+                {% endif %}
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
