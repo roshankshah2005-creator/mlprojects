@@ -61,7 +61,6 @@ st.markdown("""
         border-radius: 10px !important;
     }
     
-    /* Forces outer bold black border lines around fields */
     div[data-baseweb="select"] {
         border: 2px solid #000000 !important;
     }
@@ -88,7 +87,6 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Plus/Minus step buttons for numbers */
     div[data-testid="stNumberInputStepDown"], 
     div[data-testid="stNumberInputStepUp"] {
         background-color: #E2E8F0 !important;
@@ -96,10 +94,15 @@ st.markdown("""
         border-left: 1px solid #000000 !important;
     }
 
-    /* 6. High-Contrast High-Status Button Design */
-    div.stButton > button:first-child {
-        background: #000000 !important;
-        color: #F9D423 !important;
+    /* 6. ENHANCED FORM SUBMIT BUTTON OVERRIDES (FIXES LOWER TAB COLOR) */
+    div[data-testid="stFormSubmitButton"] {
+        background-color: transparent !important;
+        border: none !important;
+    }
+
+    div[data-testid="stFormSubmitButton"] button {
+        background: #000000 !important; /* Premium solid jet black button */
+        color: #F9D423 !important; /* Premium gold text inside */
         border-radius: 10px !important;
         width: 100% !important;
         font-weight: 800 !important;
@@ -110,8 +113,8 @@ st.markdown("""
         transition: all 0.2s ease-in-out !important;
     }
     
-    div.stButton > button:first-child:hover {
-        background: #FFFFFF !important;
+    div[data-testid="stFormSubmitButton"] button:hover {
+        background: #FFFFFF !important; /* Inverts cleanly to white on hover state */
         color: #000000 !important;
         border: 2px solid #000000 !important;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
