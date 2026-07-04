@@ -189,7 +189,7 @@ if submit_button:
                 
                 predicted_score_rounded = round(float(results[0]), 2)
 
-                # Dynamic color configuration for indicator needle ring
+                # Responsive color logic 
                 if predicted_score_rounded < 50:
                     score_color = "#EF4444"
                 elif predicted_score_rounded < 75:
@@ -197,7 +197,7 @@ if submit_button:
                 else:
                     score_color = "#10B981"
 
-                # Gauge visualizer setup
+                # Gauge visualizer setup (Fixed line comment syntax)
                 fig = go.Figure(go.Indicator(
                     mode = "gauge+number",
                     value = predicted_score_rounded,
@@ -205,7 +205,7 @@ if submit_button:
                     domain = {'x': [0, 1], 'y': [0, 1]},
                     gauge = {
                         'axis': {'range': [None, 100], 'tickwidth': 2, 'tickcolor': "#000000"},
-                        'bar': {'color': '#000000'}, /* Bold black bar metric indicator */
+                        'bar': {'color': '#000000'},
                         'bgcolor': "rgba(255,255,255,0.5)",
                         'borderwidth': 2,
                         'bordercolor': "#000000",
