@@ -17,14 +17,14 @@ st.markdown("""
 <style>
     /* 1. Warm Yellowish-Orangish Gold Gradient Background */
     .stApp {
-        background: linear-gradient(135deg, #F9D423 0%, #FF4E50 100%) !important; /* Premium rich gold transitioning to vibrant warm orange */
-        color: #000000 !important; /* Force global text to black */
+        background: linear-gradient(135deg, #F9D423 0%, #FF4E50 100%) !important;
+        color: #000000 !important;
         font-family: 'Inter', -apple-system, sans-serif !important;
     }
 
     /* 2. Premium Translucent White Card Container */
     .stForm {
-        background-color: rgba(255, 255, 255, 0.92) !important; /* Soft white card to make fields pop out beautifully */
+        background-color: rgba(255, 255, 255, 0.92) !important;
         padding: 35px !important;
         border-radius: 16px !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
@@ -52,12 +52,18 @@ st.markdown("""
         font-weight: 500 !important;
     }
 
-    /* 4. Dropdown Menu & Select Box Styling Overrides */
-    div[data-baseweb="select"] {
+    /* 4. ROBUST OVERRIDES FOR DROPDOWN TABS AND SELECTION FIELDS */
+    div[data-baseweb="select"], 
+    div[data-baseweb="select"] > div, 
+    div[role="button"] {
         background-color: #FFFFFF !important;
-        border-radius: 10px !important;
-        border: 2px solid #000000 !important; /* Bold black borders */
         color: #000000 !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Forces outer bold black border lines around fields */
+    div[data-baseweb="select"] {
+        border: 2px solid #000000 !important;
     }
     
     div[data-baseweb="select"] * {
@@ -65,22 +71,35 @@ st.markdown("""
         font-weight: 600 !important;
     }
 
-    /* 5. Number Score Input Styling */
-    div[data-baseweb="input"] {
+    /* 5. ROBUST OVERRIDES FOR NUMBER SCORE INPUT FIELDS */
+    div[data-baseweb="input"], 
+    div[data-baseweb="input"] > div, 
+    div[data-baseweb="input"] input {
         background-color: #FFFFFF !important;
+        color: #000000 !important;
         border-radius: 10px !important;
+    }
+    
+    div[data-baseweb="input"] {
         border: 2px solid #000000 !important;
     }
     
     div[data-baseweb="input"] input {
-        color: #000000 !important;
         font-weight: 600 !important;
+    }
+    
+    /* Plus/Minus step buttons for numbers */
+    div[data-testid="stNumberInputStepDown"], 
+    div[data-testid="stNumberInputStepUp"] {
+        background-color: #E2E8F0 !important;
+        color: #000000 !important;
+        border-left: 1px solid #000000 !important;
     }
 
     /* 6. High-Contrast High-Status Button Design */
     div.stButton > button:first-child {
-        background: #000000 !important; /* Premium solid jet black button */
-        color: #F9D423 !important; /* Gold text inside button */
+        background: #000000 !important;
+        color: #F9D423 !important;
         border-radius: 10px !important;
         width: 100% !important;
         font-weight: 800 !important;
@@ -92,14 +111,13 @@ st.markdown("""
     }
     
     div.stButton > button:first-child:hover {
-        background: #FFFFFF !important; /* Inverts cleanly to white layout on mouse hover */
+        background: #FFFFFF !important;
         color: #000000 !important;
         border: 2px solid #000000 !important;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
         transform: translateY(-1px) !important;
     }
     
-    /* Info Box Alert Customization to fit background */
     div[data-testid="stNotification"] {
         background-color: rgba(255, 255, 255, 0.85) !important;
         border: 2px solid #000000 !important;
@@ -189,7 +207,6 @@ if submit_button:
                 
                 predicted_score_rounded = round(float(results[0]), 2)
 
-                # Responsive color logic 
                 if predicted_score_rounded < 50:
                     score_color = "#EF4444"
                 elif predicted_score_rounded < 75:
@@ -197,7 +214,6 @@ if submit_button:
                 else:
                     score_color = "#10B981"
 
-                # Gauge visualizer setup (Fixed line comment syntax)
                 fig = go.Figure(go.Indicator(
                     mode = "gauge+number",
                     value = predicted_score_rounded,
