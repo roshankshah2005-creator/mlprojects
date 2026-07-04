@@ -15,7 +15,7 @@ st.set_page_config(
 # --- CLASSY GOLD & BLACK THEME CSS ---
 st.markdown("""
 <style>
-    /* NEW: Completely hides the top Streamlit header bar layer seen in Screenshot 2026-07-04 124248.png */
+    /* Completely hides the top Streamlit header bar layer seen in Screenshot 2026-07-04 124248.png */
     header[data-testid="stHeader"] {
         visibility: hidden !important;
         height: 0px !important;
@@ -228,10 +228,11 @@ if submit_button:
                 else:
                     score_color = "#10B981"
 
+                # FIXED: Changed font properties to use 'weight': 'bold' instead of 'bold': True
                 fig = go.Figure(go.Indicator(
                     mode = "gauge+number",
                     value = predicted_score_rounded,
-                    title = {'text': "Predicted Math Performance", 'font': {'size': 18, 'color': '#000000', 'bold': True}},
+                    title = {'text': "Predicted Math Performance", 'font': {'size': 18, 'color': '#000000', 'weight': 'bold'}},
                     domain = {'x': [0, 1], 'y': [0, 1]},
                     gauge = {
                         'axis': {'range': [None, 100], 'tickwidth': 2, 'tickcolor': "#000000"},
@@ -247,9 +248,10 @@ if submit_button:
                     }
                 ))
 
+                # FIXED: Removed structural 'bold': True parameter mismatch from layout definition
                 fig.update_layout(
                     paper_bgcolor = 'rgba(0,0,0,0)',
-                    font = {'color': "#000000", 'family': "Inter", 'bold': True},
+                    font = {'color': "#000000", 'family': "Inter"},
                     margin=dict(l=20, r=20, t=40, b=10)
                 )
 
