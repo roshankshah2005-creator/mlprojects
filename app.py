@@ -12,108 +12,112 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CUSTOM CSS (Colors & Styling) ---
+# --- CLASSY INJECTED CSS CUSTOMIZATIONS ---
 st.markdown("""
 <style>
-    /* Main Background and Text */
+    /* 1. Complete Web Body Clean Classy Aesthetic */
     .stApp {
-        background-color: #f8fafd;
-        color: #2c3e50;
+        background: linear-gradient(180deg, #F4F6F9 0%, #EBF0F5 100%) !important;
+        color: #1E293B !important;
+        font-family: 'Inter', -apple-system, sans-serif !important;
     }
 
-    /* Titles and Headers */
+    /* 2. Premium Container Framing */
+    .stForm {
+        background-color: #FFFFFF !important;
+        padding: 35px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05) !important;
+        border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    }
+
+    /* 3. Dropdown Menu & Select Box Styling Overrides */
+    div[data-baseweb="select"] {
+        background-color: #F8FAFC !important;
+        border-radius: 10px !important;
+        border: 1px solid #CBD5E1 !important;
+        color: #1E293B !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+    
+    /* Interactive Highlight Focused Selection Tab State */
+    div[data-baseweb="select"]:focus-within {
+        border-color: #4F46E5 !important;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+    }
+    
+    div[data-baseweb="select"] * {
+        color: #1E293B !important;
+        font-weight: 500 !important;
+    }
+
+    /* 4. Number Score Fields Matching Style */
+    div[data-baseweb="input"] {
+        background-color: #F8FAFC !important;
+        border-radius: 10px !important;
+        border: 1px solid #CBD5E1 !important;
+    }
+    
+    div[data-baseweb="input"]:focus-within {
+        border-color: #4F46E5 !important;
+    }
+
+    /* 5. Clean Structured Font Hierarchy */
     h1 {
-        color: #1a508b;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 700;
+        color: #0F172A !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.05em;
         text-align: center;
-        margin-bottom: 0px;
+        margin-top: 10px;
     }
     .subtitle {
-        color: #7f8c8d;
-        font-size: 1.2rem;
+        color: #64748B !important;
+        font-size: 1.15rem !important;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px !important;
     }
-
-    /* Form Container */
-    .stForm {
-        background-color: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        border: 1px solid #e1e8ed;
-    }
-
-    /* Labels and Input Styling */
-    .stSelectbox label, .stNumberInput label {
-        color: #34495e;
-        font-weight: 600 !important;
-        font-size: 1rem !important;
-    }
-
-    /* --- UPDATED SUBMIT BUTTON STYLING --- */
-    div.stButton > button:first-child {
-        background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%); /* Modern Royal Indigo to Electric Blue */
-        color: white !important;
-        border-radius: 12px;
-        width: 100%;
+    
+    .stMarkdown h3 {
+        color: #1E293B !important;
         font-weight: 700 !important;
-        font-size: 1.1rem !important;
-        border: none;
-        padding: 14px 20px;
-        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
-        transition: all 0.3s ease;
-    }
-    
-    /* Hover State */
-    div.stButton > button:first-child:hover {
-        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); /* Transitions smoothly into a sharp Teal/Blue gradient */
-        box-shadow: 0 6px 15px rgba(6, 182, 212, 0.4);
-        transform: translateY(-1px);
-        color: white !important;
-        border: none;
-    }
-    
-    /* Click Active State */
-    div.stButton > button:first-child:active {
-        transform: translateY(1px);
-        box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+        font-size: 1.3rem !important;
+        border-bottom: 2px solid #F1F5F9;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
     }
 
-    /* Prediction Result Area */
-    .prediction-container {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 15px;
-        border-left: 5px solid #2ecc71;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        text-align: center;
+    /* 6. Dynamic High-Contrast Button Design */
+    div.stButton > button:first-child {
+        background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+        color: #FFFFFF !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        border: none !important;
+        padding: 14px 20px !important;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15) !important;
+        transition: all 0.2s ease-in-out !important;
     }
-    .prediction-label {
-        color: #7f8c8d;
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-    }
-    .prediction-value {
-        color: #2ecc71;
-        font-size: 3rem;
-        font-weight: bold;
+    
+    div.stButton > button:first-child:hover {
+        background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%) !important;
+        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3) !important;
+        transform: translateY(-1px) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # --- MAIN INTERFACE ---
-st.markdown("<h1>🎓 Student Performance AI</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subtitle'>Input student details below to generate an AI-powered math score prediction.</p>", unsafe_allow_html=True)
+st.markdown("<h1>🎓 Student Performance Intelligence</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subtitle'>Predict specialized quantitative testing indicators through predictive analytical models.</p>", unsafe_allow_html=True)
 
-# Using columns for the main layout to give space to results
+# Main Structural Multi-column Grid
 main_col, result_col = st.columns([2, 1], gap="large")
 
 with main_col:
-    # Use a form container for better visual grouping
     with st.form("prediction_form", clear_on_submit=False):
-        st.subheader("📋 Student Profile & Background")
+        st.subheader("📋 Demographic & Academic Background")
         col1, col2 = st.columns(2, gap="medium")
         
         with col1:
@@ -146,8 +150,7 @@ with main_col:
                 min_value=0.0, 
                 max_value=100.0, 
                 value=50.0, 
-                step=1.0,
-                help="Score from 0-100"
+                step=1.0
             )
             
             writing_score = st.number_input(
@@ -155,22 +158,18 @@ with main_col:
                 min_value=0.0, 
                 max_value=100.0, 
                 value=50.0, 
-                step=1.0,
-                help="Score from 0-100"
+                step=1.0
             )
 
-        # Space before button
         st.markdown("<br>", unsafe_allow_html=True)
-        submit_button = st.form_submit_button(label="Calculate Prediction ✨")
+        submit_button = st.form_submit_button(label="Calculate Prediction Engine ✨")
 
-# --- HANDLING SUBMISSION ---
+# --- HANDLING SUBMISSION & OUTPUT GRAPHING ---
 if submit_button:
     with result_col:
-        # Custom loading animation (centered)
         st.markdown("<br><br>", unsafe_allow_html=True)
-        with st.spinner("🧠 AI is processing data..."):
+        with st.spinner("Processing deep learning pipelines..."):
             try:
-                # Map values into your existing CustomData pipeline structure
                 data = CustomData(
                     gender=gender,
                     race_ethnicity=ethnicity,
@@ -181,65 +180,51 @@ if submit_button:
                     writing_score=float(writing_score)
                 )
                 
-                # Convert input data to the DataFrame format your model expects
                 pred_df = data.get_data_as_data_frame()
-                
-                # Run the prediction pipeline
                 predict_pipeline = PredictPipeline()
                 results = predict_pipeline.predict(pred_df)
                 
-                # Clean up the result (handle single output or array)
-                predicted_score = float(results[0])
-                predicted_score_rounded = round(predicted_score, 2)
+                predicted_score_rounded = round(float(results[0]), 2)
 
-                # --- VISUAL PREDICTION GAUGE ---
-                st.markdown("<br>", unsafe_allow_html=True)
-                
-                # Define color based on score (Red to Green)
+                # Responsive color logic 
                 if predicted_score_rounded < 50:
-                    score_color = "#e74c3c" # Red
+                    score_color = "#EF4444"
                 elif predicted_score_rounded < 75:
-                    score_color = "#f39c12" # Orange
+                    score_color = "#F59E0B"
                 else:
-                    score_color = "#2ecc71" # Green
+                    score_color = "#10B981"
 
-                # Plotly Gauge Chart
+                # High-fidelity dashboard gauge chart
                 fig = go.Figure(go.Indicator(
                     mode = "gauge+number",
                     value = predicted_score_rounded,
-                    title = {'text': "Predicted Math Score", 'font': {'size': 20, 'color': '#1a508b'}},
+                    title = {'text': "Predicted Math Performance", 'font': {'size': 18, 'color': '#0F172A', 'bold': True}},
                     domain = {'x': [0, 1], 'y': [0, 1]},
                     gauge = {
-                        'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "#7f8c8d"},
+                        'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "#64748B"},
                         'bar': {'color': score_color},
-                        'bgcolor': "white",
-                        'borderwidth': 2,
-                        'bordercolor': "#e1e8ed",
+                        'bgcolor': "rgba(0,0,0,0)",
+                        'borderwidth': 1,
+                        'bordercolor': "#E2E8F0",
                         'steps': [
-                            {'range': [0, 50], 'color': '#fadbd8'},
-                            {'range': [50, 75], 'color': '#fdebd0'},
-                            {'range': [75, 100], 'color': '#d4efdf'}
-                        ],
-                        'threshold': {
-                            'line': {'color': "black", 'width': 3},
-                            'thickness': 0.75,
-                            'value': predicted_score_rounded
-                        }
+                            {'range': [0, 50], 'color': '#FEE2E2'},
+                            {'range': [50, 75], 'color': '#FEF3C7'},
+                            {'range': [75, 100], 'color': '#D1FAE5'}
+                        ]
                     }
                 ))
 
                 fig.update_layout(
-                    paper_bgcolor = 'rgba(0,0,0,0)', # Transparent background
-                    font = {'color': "#2c3e50", 'font': {'size': 16}},
-                    margin=dict(l=20, r=20, t=30, b=10)
+                    paper_bgcolor = 'rgba(0,0,0,0)',
+                    font = {'color': "#0F172A", 'family': "Inter"},
+                    margin=dict(l=20, r=20, t=40, b=10)
                 )
 
                 st.plotly_chart(fig, use_container_width=True)
                 
             except Exception as e:
-                st.error(f"❌ An error occurred during prediction: {e}")
+                st.error(f"Prediction Pipeline Error: {e}")
 else:
     with result_col:
-        # Information box shown before a prediction is run
         st.markdown("<br><br><br><br>", unsafe_allow_html=True)
-        st.info("👈 Fill out the profile and click the button to see the AI's predicted Math Score appear here.")
+        st.info("👈 System status ready. Toggle profile properties and evaluate output scoring values.")
