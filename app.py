@@ -52,21 +52,33 @@ st.markdown("""
         font-size: 1rem !important;
     }
 
-    /* Submit Button */
+    /* --- UPDATED SUBMIT BUTTON STYLING --- */
     div.stButton > button:first-child {
-        background-color: #1a508b;
-        color: white;
-        border-radius: 25px;
+        background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%); /* Modern Royal Indigo to Electric Blue */
+        color: white !important;
+        border-radius: 12px;
         width: 100%;
-        font-weight: bold;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
         border: none;
-        padding: 10px;
-        transition: background-color 0.3s ease;
+        padding: 14px 20px;
+        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+        transition: all 0.3s ease;
     }
+    
+    /* Hover State */
     div.stButton > button:first-child:hover {
-        background-color: #0d3b66;
-        color: white;
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); /* Transitions smoothly into a sharp Teal/Blue gradient */
+        box-shadow: 0 6px 15px rgba(6, 182, 212, 0.4);
+        transform: translateY(-1px);
+        color: white !important;
         border: none;
+    }
+    
+    /* Click Active State */
+    div.stButton > button:first-child:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
     }
 
     /* Prediction Result Area */
