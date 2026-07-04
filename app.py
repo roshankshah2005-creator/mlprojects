@@ -12,98 +12,101 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- CLASSY INJECTED CSS CUSTOMIZATIONS ---
+# --- CLASSY GOLD & BLACK THEME CSS ---
 st.markdown("""
 <style>
-    /* 1. Complete Web Body Clean Classy Aesthetic */
+    /* 1. Warm Yellowish-Orangish Gold Gradient Background */
     .stApp {
-        background: linear-gradient(180deg, #F4F6F9 0%, #EBF0F5 100%) !important;
-        color: #1E293B !important;
+        background: linear-gradient(135deg, #F9D423 0%, #FF4E50 100%) !important; /* Premium rich gold transitioning to vibrant warm orange */
+        color: #000000 !important; /* Force global text to black */
         font-family: 'Inter', -apple-system, sans-serif !important;
     }
 
-    /* 2. Premium Container Framing */
+    /* 2. Premium Translucent White Card Container */
     .stForm {
-        background-color: #FFFFFF !important;
+        background-color: rgba(255, 255, 255, 0.92) !important; /* Soft white card to make fields pop out beautifully */
         padding: 35px !important;
         border-radius: 16px !important;
-        box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05) !important;
-        border: 1px solid rgba(226, 232, 240, 0.8) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
     }
 
-    /* 3. Dropdown Menu & Select Box Styling Overrides */
-    div[data-baseweb="select"] {
-        background-color: #F8FAFC !important;
-        border-radius: 10px !important;
-        border: 1px solid #CBD5E1 !important;
-        color: #1E293B !important;
-        transition: all 0.2s ease-in-out !important;
+    /* 3. Global Text Overrides to Rich Jet Black */
+    h1, h2, h3, p, span, label, .subtitle {
+        color: #000000 !important;
+        font-weight: 700 !important;
     }
     
-    /* Interactive Highlight Focused Selection Tab State */
-    div[data-baseweb="select"]:focus-within {
-        border-color: #4F46E5 !important;
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
-    }
-    
-    div[data-baseweb="select"] * {
-        color: #1E293B !important;
-        font-weight: 500 !important;
-    }
-
-    /* 4. Number Score Fields Matching Style */
-    div[data-baseweb="input"] {
-        background-color: #F8FAFC !important;
-        border-radius: 10px !important;
-        border: 1px solid #CBD5E1 !important;
-    }
-    
-    div[data-baseweb="input"]:focus-within {
-        border-color: #4F46E5 !important;
-    }
-
-    /* 5. Clean Structured Font Hierarchy */
     h1 {
-        color: #0F172A !important;
-        font-weight: 800 !important;
+        font-weight: 900 !important;
         letter-spacing: -0.05em;
         text-align: center;
         margin-top: 10px;
-    }
-    .subtitle {
-        color: #64748B !important;
-        font-size: 1.15rem !important;
-        text-align: center;
-        margin-bottom: 40px !important;
+        text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
     }
     
-    .stMarkdown h3 {
-        color: #1E293B !important;
-        font-weight: 700 !important;
-        font-size: 1.3rem !important;
-        border-bottom: 2px solid #F1F5F9;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+    .subtitle {
+        font-size: 1.2rem !important;
+        text-align: center;
+        margin-bottom: 40px !important;
+        font-weight: 500 !important;
     }
 
-    /* 6. Dynamic High-Contrast Button Design */
+    /* 4. Dropdown Menu & Select Box Styling Overrides */
+    div[data-baseweb="select"] {
+        background-color: #FFFFFF !important;
+        border-radius: 10px !important;
+        border: 2px solid #000000 !important; /* Bold black borders */
+        color: #000000 !important;
+    }
+    
+    div[data-baseweb="select"] * {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
+
+    /* 5. Number Score Input Styling */
+    div[data-baseweb="input"] {
+        background-color: #FFFFFF !important;
+        border-radius: 10px !important;
+        border: 2px solid #000000 !important;
+    }
+    
+    div[data-baseweb="input"] input {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
+
+    /* 6. High-Contrast High-Status Button Design */
     div.stButton > button:first-child {
-        background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
-        color: #FFFFFF !important;
+        background: #000000 !important; /* Premium solid jet black button */
+        color: #F9D423 !important; /* Gold text inside button */
         border-radius: 10px !important;
         width: 100% !important;
-        font-weight: 600 !important;
+        font-weight: 800 !important;
         font-size: 1.1rem !important;
-        border: none !important;
+        border: 2px solid #000000 !important;
         padding: 14px 20px !important;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
         transition: all 0.2s ease-in-out !important;
     }
     
     div.stButton > button:first-child:hover {
-        background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%) !important;
-        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3) !important;
+        background: #FFFFFF !important; /* Inverts cleanly to white layout on mouse hover */
+        color: #000000 !important;
+        border: 2px solid #000000 !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
         transform: translateY(-1px) !important;
+    }
+    
+    /* Info Box Alert Customization to fit background */
+    div[data-testid="stNotification"] {
+        background-color: rgba(255, 255, 255, 0.85) !important;
+        border: 2px solid #000000 !important;
+        border-radius: 12px !important;
+    }
+    div[data-testid="stNotification"] * {
+        color: #000000 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -112,12 +115,12 @@ st.markdown("""
 st.markdown("<h1>🎓 Student Performance Intelligence</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>Predict specialized quantitative testing indicators through predictive analytical models.</p>", unsafe_allow_html=True)
 
-# Main Structural Multi-column Grid
+# Main Grid Partitioning
 main_col, result_col = st.columns([2, 1], gap="large")
 
 with main_col:
     with st.form("prediction_form", clear_on_submit=False):
-        st.subheader("📋 Demographic & Academic Background")
+        st.markdown("<h3>📋 Demographic & Academic Background</h3>", unsafe_allow_html=True)
         col1, col2 = st.columns(2, gap="medium")
         
         with col1:
@@ -186,7 +189,7 @@ if submit_button:
                 
                 predicted_score_rounded = round(float(results[0]), 2)
 
-                # Responsive color logic 
+                # Dynamic color configuration for indicator needle ring
                 if predicted_score_rounded < 50:
                     score_color = "#EF4444"
                 elif predicted_score_rounded < 75:
@@ -194,18 +197,18 @@ if submit_button:
                 else:
                     score_color = "#10B981"
 
-                # High-fidelity dashboard gauge chart
+                # Gauge visualizer setup
                 fig = go.Figure(go.Indicator(
                     mode = "gauge+number",
                     value = predicted_score_rounded,
-                    title = {'text': "Predicted Math Performance", 'font': {'size': 18, 'color': '#0F172A', 'bold': True}},
+                    title = {'text': "Predicted Math Performance", 'font': {'size': 18, 'color': '#000000', 'bold': True}},
                     domain = {'x': [0, 1], 'y': [0, 1]},
                     gauge = {
-                        'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "#64748B"},
-                        'bar': {'color': score_color},
-                        'bgcolor': "rgba(0,0,0,0)",
-                        'borderwidth': 1,
-                        'bordercolor': "#E2E8F0",
+                        'axis': {'range': [None, 100], 'tickwidth': 2, 'tickcolor': "#000000"},
+                        'bar': {'color': '#000000'}, /* Bold black bar metric indicator */
+                        'bgcolor': "rgba(255,255,255,0.5)",
+                        'borderwidth': 2,
+                        'bordercolor': "#000000",
                         'steps': [
                             {'range': [0, 50], 'color': '#FEE2E2'},
                             {'range': [50, 75], 'color': '#FEF3C7'},
@@ -216,7 +219,7 @@ if submit_button:
 
                 fig.update_layout(
                     paper_bgcolor = 'rgba(0,0,0,0)',
-                    font = {'color': "#0F172A", 'family': "Inter"},
+                    font = {'color': "#000000", 'family': "Inter", 'bold': True},
                     margin=dict(l=20, r=20, t=40, b=10)
                 )
 
